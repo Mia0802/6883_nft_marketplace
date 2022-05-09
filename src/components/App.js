@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import provider from '../provider';
+import provider from '../provider';
 import Mcp from "mcp.js"
 import pixleU from '../components/contracts/PixleU.sol/PixleU.json'
 import { ProgressBar } from "react-bootstrap";
@@ -18,30 +18,23 @@ class App extends Component{
 
     // detect provider
     async loadWeb3(){
-        if(typeof provider == 'undefined'){
-            const provider =  window['aleereum'];
-            console.log('yes')
-
-            if(provider){
-                await provider.connect()
-        
-                const accounts = await provider.account
-                this.setState({account:accounts})
-                console.log(this.state.account)
-            } 
-            // else {
-            //     console.log('Wallet not Connect');
-            // }
-
+        const provider =  await window['aleereum'];
+            // console.log('yes')
+        if(provider){
+            await provider.connect()
+    
+            const accounts = await provider.account
+            this.setState({account:accounts})
+            console.log(this.state.account)
         } else {
             console.log('Wallet not Connect');
         }
     }
 
     async loadBlockchainData(){
-        // const accounts = await provider.account
-        // this.setState({account: accounts})
-        // const accounts = await provider.account
+        const provider =  window['aleereum'];
+        const accounts = await provider.account
+        this.setState({account: accounts})
         console.log(this.state.account)
 
         // const networkId = await provider.networkId
@@ -67,13 +60,6 @@ class App extends Component{
                 pixleUz: [...this.state.pixleUz, pixleU]
             })
         }
-
-        // } else {
-        //     window.alert('Smart Contract Not deployed')
-        //     console.log('Error')
-        // }
-    // }
-
     }
 
     mint = (pixleU) => {
