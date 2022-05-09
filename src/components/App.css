@@ -1,0 +1,111 @@
+.navbar-brand{
+    font-size: xx-large;
+    font-style: italic;
+    color: white;
+    font-weight: bold;
+}
+.text-white{
+    font-size: larger;
+}
+
+
+body {
+    height:200vh;
+    width:100%;
+    margin:0;
+    background: rgb(99,95,255);
+    background: radial-gradient(circle, rgba(99,95,255,0.2413165949973739) 10%, rgba(83,149,220,1) 65%, rgba(153,247,201,1) 86%);
+    animation: gradientBG 20s ease infinite;
+    background-size: 400% 400%;
+}
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    1000% {
+        background-position: 0% 50%;
+    }
+
+}
+
+.token {
+    width: 300px;
+    box-shadow: 0 8px 16px rgba(5, 5, 5, 0.3);
+    padding: 2px 16px;
+    margin: 16px;
+    border-radius: 8px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAG0lEQVQYV2P8//+/FCMj4zMGJMCIzIGxKRQEAJgPBAbJqUVTAAAAAElFTkSuQmCC) repeat;
+}
+
+img { 
+
+    border: .3px rgba(#e0e0e0);
+    box-shadow: 10px 10px 8px rgba(#111111);
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    margin-top:10px;
+}
+
+.container-filled {
+    position:absolute;
+    width:100%;
+    text-align:center;
+    top:15%;
+}
+
+.line{
+    margin-top: 200px;
+}
+
+.content{
+    margin-left: 20px;
+    display: block;
+    align-items: center;
+    padding-top: 80px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+p{
+    font-size: 30px;
+}
+
+.row1{
+    margin-top: 50px;
+    vertical-align: middle;
+
+}
+
+.row2{
+    margin-top: 50px;
+
+}
+
+
+.token2 {
+    width: 320px;
+    box-shadow: 0 20px 40px rgba(5, 5, 5, 0.3);
+    padding: 20px 20px;
+    margin: 30px;
+    border-radius: 30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAG0lEQVQYV2P8//+/FCMj4zMGJMCIzIGxKRQEAJgPBAbJqUVTAAAAAElFTkSuQmCC) repeat;
+}
+
+image { 
+
+    border: .3px rgba(#e0e0e0);
+    box-shadow: 10px 10px 8px rgba(#111111);
+    border-radius: 4px;
+    padding: 20px;
+    width: 150px;
+    margin-top:10px;
+}
+#des{
+    font-size: 20px;
+}
