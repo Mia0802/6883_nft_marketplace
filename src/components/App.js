@@ -1,38 +1,38 @@
 import React, { Component } from "react";
-import provider from '../provider';
+// import provider from '../provider';
 import Mcp from "mcp.js"
 import pixleU from '../components/contracts/PixleU.sol/PixleU.json'
-import { ProgressBar } from "react-bootstrap";
 import './App.css';
 import {MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn} from 'mdb-react-ui-kit';
 
 const mcp = new Mcp();
-const address = "0x3A4E6F846B02976a4aB502c1ED6Bad4741bDf00F"
+const address = "0xCAEf4c8D0f42576472D13D0B8c3d6C7696C93A29"
 class App extends Component{
 
 
     async componentDidMount(){
         await this.loadWeb3();
         await this.loadBlockchainData();
+        await this.getBalance();
     }
 
     // detect provider
     async loadWeb3(){
-        const provider =  await window['aleereum'];
+        if (typeof window.aleereum !== "undefined") {
+
+            await window['aleereum'];
             // console.log('yes')
-        if(provider){
-            await provider.connect()
-    
-            const accounts = await provider.account
-            this.setState({account:accounts})
-            console.log(this.state.account)
-        } else {
-            console.log('Wallet not Connect');
+            await window['aleereum'].connect()
+                console.log('yes')
+            // } else {
+            //     console.log('Wallet not Connect');
+            // }
         }
+
     }
 
     async loadBlockchainData(){
-        const provider =  window['aleereum'];
+        const provider = await window['aleereum'];
         const accounts = await provider.account
         this.setState({account: accounts})
         console.log(this.state.account)
@@ -50,25 +50,39 @@ class App extends Component{
         // console.log(this.state.contract);
 
         // call total supply of the collectibles
-        const totalSupply = await contract.methods.totalSupply()
+        const totalSupply = await this.state.contract.methods.totalSupply()
         this.setState({totalSupply})
         // console.log(this.state.totalSupply)
 
         for (let i = 1; i <= totalSupply; i++){
-            const pixleU = await contract.methods.pixleUz(i - 1).call()
+            const pixleU = await this.state.contract.methods.pixleUz(i - 1)
             this.setState({
                 pixleUz: [...this.state.pixleUz, pixleU]
             })
         }
     }
 
+    async getBalance() {
+        let balance = await this.state.contract.methods.balanceOf("0x4Bab021B0387Fe2437B1C2262aC504546De335Ba");
+        console.log(balance);
+    }
+
     mint = (pixleU) => {
-        this.state.contract.methods.mint(pixleU).sendBlock({from:this.state.account})
+        this.state.contract.methods.mint(pixleU).sendBlock(
+            {
+                from:this.state.account,
+                gas: 300,
+                gas_price: '1000000'
+            })
         .then('receipt', (receipt)=> {
             this.setState({
                 pixleUz:[...this.state.pixleUz, pixleU]
             })
-            console.log(this.state.pixleUz)
+            const total = this.state.contract.methods.totalSupply()
+            // console.log(pixleU.address)
+
+            let owner = this.state.contract.methods.ownerOf(1)
+            console.log(owner)
         })  
     }
 
@@ -79,7 +93,7 @@ class App extends Component{
         this.state = {
             account: '',
             contract: null,
-            totalSupply: 5,
+            totalSupply: 0,
             pixleUz: []
         }
     }
@@ -146,7 +160,7 @@ class App extends Component{
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2"></div>
+                        <div className="col-md-2" id="success"></div>
                         <div className="col-md-5"> 
                             <div className="row">
                                 <MDBCard className='token2 image' style={{maxWidth:'22rem'}}>
@@ -169,6 +183,7 @@ class App extends Component{
                                             <MDBCardImage src={pixleU}  position='top' height='250rem' style={{marginRight:'4px'}} key="{pixleU}"/>
                                             <MDBCardBody>
                                                 <MDBCardTitle> PixelU </MDBCardTitle> 
+                                                <MDBCardText id='success'> Successfully Minted </MDBCardText>
                                                 <MDBCardText id='des'> The PixelU are 5 uniquely generated PixelU of our five cool developer from the cyberpunk cloud galaxy Mystopia! There is only one of each PixelU and each PixelU can be owned by a single person on the Computecoin blockchain. </MDBCardText>
                                                 <MDBBtn href={pixleU}>Download</MDBBtn>
                                             </MDBCardBody>

@@ -1,11 +1,12 @@
-import "hardhat/console.sol";
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import './ERC721connector.sol';
+import "hardhat/console.sol";
 
 contract PixleU is ERC721Connector{
 
     string [] public pixleUz;
+    address public owner = msg.sender;
 
     mapping(string => bool) _pixleUzExists;
 
@@ -15,12 +16,12 @@ contract PixleU is ERC721Connector{
 
         pixleUz.push(_pixleU);
         uint _id = pixleUz.length - 1;
-
         _mint(msg.sender, _id);
+
+        console.log(owner);
+        console.log(msg.sender);
 
         _pixleUzExists[_pixleU] = true;
 
     }
-
-    constructor() ERC721Connector(){}
 }

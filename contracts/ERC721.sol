@@ -61,14 +61,7 @@ contract ERC721 is ERC165, IERC721{
         require(!_exists(tokenId), 'ERC721: Token is already minted');
 
         _tokenOwner[tokenId] = to; 
-        _OwnedTokensCount[to].increment();  
-       
-       /* x = x + 1
-        r = x + y, abs r >= x
-        if x = 4 and y = 3 then r = 7
-       abs r >= x
-        r = x - y, abs y <= x
-        */  
+        _OwnedTokensCount[to].increment(); 
         
 
         emit Transfer(address(0), to, tokenId);

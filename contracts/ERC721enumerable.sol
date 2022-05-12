@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './ERC721.sol';
+import 'contracts/ERC721.sol';
 import 'contracts/interfaces/IERC721enumerable.sol';
 
 contract ERC721Enumerable is IERC721Enumerable, ERC721 {
