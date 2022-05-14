@@ -10,7 +10,9 @@ npm run start
 at the root folder. 
 
 ## Requirements
-Requires npm, React, and node.js
+Requires _npm_, _React_, and _node.js_ to run the program.
+
+Requires _Ale Wallet_ to test the minting functionality.
 
 ## Test Cases
 Some image links for testing:
