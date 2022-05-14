@@ -1,4 +1,4 @@
-# Description
+# Application Description
 An NFT minting DApp based on Computecoin(CCN), a powerful infrastructure that serves Decentralized Apps implementation and other metaverse services. The DApp offers services for minting all kinds of digital assets. We develop the project with Hardhat\cite{b1} and test the minting functionalities on Huygens-Dev testnet with CCN tokens.
 
 # Implementation Details
