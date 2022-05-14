@@ -106,7 +106,7 @@ class App extends Component{
                 bg-secondary flex-md-nowrap p-0 shadow'>
                 <div className='navbar-brand col-sm-3 col-md-3 
                 mr-0'>
-                      PixelU NFTs
+                      PixelU NFT
                 </div>
                 <ul className='navbar-nav px-3'>
                 <li className='nav-item text-nowrap
@@ -126,7 +126,7 @@ class App extends Component{
                             <div className='content mr-auto ml-auto'
                             style={{opacity:'0.8'}}>
                                 <h1 style={{color:'black'}}>
-                                    PixelU - NFT Marketplace</h1>
+                                    PixelU - NFT Minting</h1>
                             <form onSubmit={(event)=>{
                                 event.preventDefault()
                                 const pixleU = this.pixleU.value
@@ -134,7 +134,7 @@ class App extends Component{
                             }}>
                                 <input
                                 type='text'
-                                placeholder='Add a file location'
+                                placeholder='Add a file link'
                                 className='form-control mb-1'
                                 ref={(input)=>this.pixleU = input}
                                 />
@@ -153,7 +153,7 @@ class App extends Component{
                                 <div className='content mr-auto ml-auto'
                                         style={{opacity:'0.8'}}>
                                             <p style={{color:'black'}}>
-                                                Discover, Collect, and Sell extraordinary NFTs</p>
+                                                Mint, Discover, and Collect extraordinary NFTs</p>
                                             <br></br>
                                             <p style={{color:'black'}}>
                                                 Create your own cartoon character</p>
@@ -164,9 +164,9 @@ class App extends Component{
                         <div className="col-md-5"> 
                             <div className="row">
                                 <MDBCard className='token2 image' style={{maxWidth:'22rem'}}>
-                                <MDBCardImage src="https://i.ibb.co/smfFw32/p1.png"  position='top' height='250rem' style={{marginRight:'4px'}} />
+                                <MDBCardImage src="https://i.ibb.co/DMRVYY0/test1.jpg"  position='top' height='250rem' style={{marginRight:'4px'}} />
                                 <MDBCardBody>
-                                <MDBCardTitle> PixelU </MDBCardTitle> 
+                                <MDBCardTitle> PixelU Dev Team </MDBCardTitle> 
                                 </MDBCardBody>
                                 </MDBCard>
                                 {/* <img src="https://i.ibb.co/smfFw32/p1.png" className="img-thumbnail" alt="..."></img>  */}
@@ -184,7 +184,7 @@ class App extends Component{
                                             <MDBCardBody>
                                                 <MDBCardTitle> PixelU </MDBCardTitle> 
                                                 <MDBCardText id='success'> Successfully Minted </MDBCardText>
-                                                <MDBCardText id='des'> The PixelU are 5 uniquely generated PixelU of our five cool developer from the cyberpunk cloud galaxy Mystopia! There is only one of each PixelU and each PixelU can be owned by a single person on the Computecoin blockchain. </MDBCardText>
+                                                <MDBCardText id='des'> Mint more to build your special collection! </MDBCardText>
                                                 <MDBBtn href={pixleU}>Download</MDBBtn>
                                             </MDBCardBody>
                                         </MDBCard>
