@@ -10,7 +10,7 @@ npm run start
 at the root folder. 
 
 ## Requirements
-Requires npm, React, node.js
+Requires npm, React, and node.js
 
 ## Test Cases
 Some image links for testing:
